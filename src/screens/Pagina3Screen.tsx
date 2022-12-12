@@ -1,9 +1,17 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {View, Text} from 'react-native';
-export const Pagina3Screen = () => {
+import {View, Text, Button} from 'react-native';
+import {styles} from '../theme/appTheme';
+interface Props extends StackScreenProps<any, any> {}
+export const Pagina3Screen = ({navigation}: Props) => {
+  const navigator = useNavigation();
+
   return (
-    <View>
+    <View style={styles.globalMargin}>
       <Text>Pagina3Screen</Text>
+      <Button title="Volver" onPress={() => navigator.goBack()} />
+      <Button title="Volver a home" onPress={() => navigation.popToTop()} />
     </View>
   );
 };
