@@ -3,18 +3,23 @@ import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {styles} from '../theme/appTheme';
 
+interface RouteParams {
+  id: number;
+  nombre: string;
+}
+
 interface Props extends StackScreenProps<any, any> {}
 
 export const PersonaScreen = ({navigation, route}: Props) => {
   console.log(route);
 
-  //! manera sucia de obtener parametros
-  const {params} = route;
+  //! manera no tan sucia de obtener parametros (usando interface y la keyword as (type casting))
+  const params = route.params as RouteParams;
   // console.log(JSON.stringify(rops, null, 2));
 
   useEffect(() => {
     navigation.setOptions({
-      title: params!.nombre,
+      title: params.nombre,
     });
   });
   return (
