@@ -9,7 +9,7 @@ export const Pagina3Screen = ({navigation}: Props) => {
 
   return (
     <View style={styles.globalMargin}>
-      <Text>Pagina3Screen</Text>
+      <Text style={styles.title}>Pagina3Screen</Text>
       <Button title="Volver" onPress={() => navigator.goBack()} />
       <Button title="Volver a home" onPress={() => navigation.popToTop()} />
     </View>
