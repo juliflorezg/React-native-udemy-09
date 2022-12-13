@@ -14,8 +14,18 @@ import {
   Text,
 } from 'react-native';
 import {styles} from '../theme/appTheme';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const Drawer = createDrawerNavigator();
+
+const Stack = createStackNavigator();
+const SettingsStackScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
+    </Stack.Navigator>
+  );
+};
 
 export const MenuLateral = () => {
   const {width} = useWindowDimensions();
@@ -30,7 +40,7 @@ export const MenuLateral = () => {
       }}
       drawerContent={(props: any) => <MenuContent {...props} />}>
       <Drawer.Screen name="StackNavigator" component={StackNavigator} />
-      <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+      <Drawer.Screen name="SettingsScreen" component={SettingsStackScreen} />
     </Drawer.Navigator>
   );
 };
