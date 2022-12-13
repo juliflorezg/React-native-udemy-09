@@ -31,4 +31,17 @@ export const styles = StyleSheet.create({
     height: 150,
     borderRadius: 100,
   },
+  menuContainer: {
+    // backgroundColor: 'salmon',
+    marginVertical: 30,
+    // paddingHorizontal: 30,
+    alignItems: 'center',
+  },
+  menuBoton: {
+    paddingVertical: 10,
+  },
+  menuTexto: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
 });
