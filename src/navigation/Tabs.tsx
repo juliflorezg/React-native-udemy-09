@@ -5,7 +5,7 @@ import {Tab2Screen} from '../screens/Tab2Screen';
 // import {Tab3Screen} from '../screens/Tab3Screen';
 import {StackNavigator} from './StackNavigator';
 import {colores} from '../theme/appTheme';
-import {Platform, Text} from 'react-native';
+import {Platform, Text, View} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 export const Tabs = () => {
@@ -38,24 +38,40 @@ const TabsAndroid = () => {
         tabBarIcon: ({color, focused}) => {
           console.log(route.name);
           console.log('Material tab icon-->:', {color, focused});
-          let iconName: string = '';
+          // let iconName: string = '';
 
-          switch (route.name) {
-            case 'Tab1Screen':
-              iconName = 'T1';
-              break;
-            case 'Tab2Screen':
-              iconName = 'T2';
-              break;
-            case 'StackNavigator':
-              iconName = 'ST';
-              break;
-          }
+          // switch (route.name) {
+          //   case 'Tab1Screen':
+          //     iconName = 'T1';
+          //     break;
+          //   case 'Tab2Screen':
+          //     iconName = 'T2';
+          //     break;
+          //   case 'StackNavigator':
+          //     iconName = 'ST';
+          //     break;
+          // }
+          const options: {[key: string]: string} = {
+            // const options = {
+            Tab1Screen: 'T1',
+            Tab2Screen: 'T2',
+            StackNavigator: 'ST',
+          };
 
           return (
-            <Text style={{color, backgroundColor: colores.primary}}>
-              {iconName}
-            </Text>
+            <View>
+              <Text
+                style={{
+                  color: focused ? '#390052' : '#000',
+                  backgroundColor: colores.primary,
+                }}>
+                {/* {iconName} */}
+                {/* the keys in this options object must be of type 'string' to
+                be able to index the object with route.name property which is
+                also of type 'string' */}
+                {options[route.name]}
+              </Text>
+            </View>
           );
         },
       })}
