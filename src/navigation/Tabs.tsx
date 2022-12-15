@@ -8,6 +8,7 @@ import {colores} from '../theme/appTheme';
 import {Platform, Text, View} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {TopTabNavigator} from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -54,24 +55,24 @@ const TabsAndroid = () => {
           // }
           const options: {[key: string]: string} = {
             // const options = {
-            Tab1Screen: 'T1',
-            Tab2Screen: 'T2',
-            StackNavigator: 'ST',
+            Tab1Screen: 'basketball-outline',
+            Tab2Screen: 'chevron-up-outline',
+            StackNavigator: 'layers-outline',
           };
 
           return (
             <View>
-              <Text
-                style={{
-                  color: focused ? '#390052' : '#000',
-                  backgroundColor: colores.primary,
-                }}>
-                {/* {iconName} */}
-                {/* the keys in this options object must be of type 'string' to
-                be able to index the object with route.name property which is
-                also of type 'string' */}
-                {options[route.name]}
-              </Text>
+              <Icon
+                //   the keys in this options object must be of type 'string' to
+                //   be able to index the object with route.name property which is
+                // also of type 'string'
+                name={options[route.name]}
+                size={20}
+                color={colores.primary}
+              />
+              {/* {iconName}
+                {options[route.name]} */}
+              {/* </Icon> */}
             </View>
           );
         },

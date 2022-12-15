@@ -3,6 +3,7 @@ import {DrawerScreenProps} from '@react-navigation/drawer';
 import React, {useEffect} from 'react';
 import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {styles} from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // interface Props extends StackScreenProps<any, any> {}
 interface Props extends DrawerScreenProps<any, any> {}
@@ -13,7 +14,10 @@ export const Pagina1Screen = ({navigation}: Props) => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Button title="Menú" onPress={() => navigation.openDrawer()} />
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <Icon name="menu" size={30} color="#000" />
+          {/* <Button title="Menú" onPress={() => navigation.openDrawer()} /> */}
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
@@ -40,6 +44,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
             })
           }
           style={styles.botonGrande}>
+          <Icon name="person-circle" size={40} color="#fff" />
           <Text style={styles.botonGrandeTexto}>Pedro</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -50,6 +55,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
             })
           }
           style={styles.botonGrande}>
+          <Icon name="happy-outline" size={40} color="#fff" />
           <Text style={styles.botonGrandeTexto}>LOL</Text>
         </TouchableOpacity>
       </View>
