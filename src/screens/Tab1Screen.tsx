@@ -4,9 +4,9 @@ import {colores, styles} from '../theme/appTheme';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome5';
-{
-  /* <Icon name="rocket" size={30} color="#900" />; */
-}
+import {TouchableIcon} from '../components/TouchableIcon';
+
+/* <Icon name="rocket" size={30} color="#900" />; */
 
 export const Tab1Screen = () => {
   // effect is shown just the first time, when component is mounted, it doesn't show again when we focus this tab
@@ -18,6 +18,7 @@ export const Tab1Screen = () => {
     <View style={styles.globalMargin}>
       <Text style={styles.title}>Iconos</Text>
       {/*  */}
+      <TouchableIcon library="ionicons" name="rocket" size={50} color="#900" />
       <Icon name="rocket" size={50} color="#900" />
       <Icon name="airplane" size={50} color="#900" />
       <View
