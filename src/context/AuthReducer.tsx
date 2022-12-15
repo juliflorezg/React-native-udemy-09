@@ -5,7 +5,8 @@ type AuthAction =
   | {
       type: 'setFavIcon';
       payload: {name: string; iconLibrary: 'ionicons' | 'fontawesome5'};
-    };
+    }
+  | {type: 'logout'};
 
 export const authReducer = (
   state: AuthState,
@@ -26,6 +27,15 @@ export const authReducer = (
         ...state,
         favoriteIcon: action.payload.name,
         iconLibrary: action.payload.iconLibrary,
+      };
+    }
+    case 'logout': {
+      return {
+        ...state,
+        isLoggedIn: false,
+        userName: undefined,
+        favoriteIcon: undefined,
+        iconLibrary: undefined,
       };
     }
     default:

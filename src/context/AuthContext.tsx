@@ -24,6 +24,7 @@ export interface AuthContextProps {
     name: string,
     iconLibrary: 'ionicons' | 'fontawesome5',
   ) => void;
+  logout: () => void;
 }
 
 // 4. crear el contexto
@@ -44,12 +45,17 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
   ) => {
     dispatch({type: 'setFavIcon', payload: {name, iconLibrary}});
   };
+
+  const logout = () => {
+    dispatch({type: 'logout'});
+  };
   return (
     <AuthContext.Provider
       value={{
         authState,
         signIn,
         setFavoriteIcon,
+        logout,
       }}>
       {children}
     </AuthContext.Provider>
