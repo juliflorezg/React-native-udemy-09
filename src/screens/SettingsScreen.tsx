@@ -14,12 +14,12 @@ export const SettingsScreen = () => {
   let icon;
   if (authState.favoriteIcon) {
     if (authState.iconLibrary === 'ionicons') {
-      icon = <Icon name={authState.favoriteIcon} size={50} color="turquoise" />;
+      icon = <Icon name={authState.favoriteIcon} size={70} color="turquoise" />;
     } else if (authState.iconLibrary === 'fontawesome5') {
       icon = (
         <AwesomeIcon
           name={authState.favoriteIcon}
-          size={50}
+          size={70}
           color="turquoise"
         />
       );
@@ -33,8 +33,9 @@ export const SettingsScreen = () => {
         marginTop: insets.top + 20,
       }}>
       <Text style={styles.title}>Settings Screen</Text>
-      <Text>{JSON.stringify(authState, null, 2)}</Text>
-      {icon}
+      <Text style={{fontSize: 24}}>{JSON.stringify(authState, null, 2)}</Text>
+
+      {authState.isLoggedIn && icon}
     </View>
   );
 };
