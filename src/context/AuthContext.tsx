@@ -6,7 +6,7 @@ export interface AuthState {
   isLoggedIn: boolean;
   userName?: string;
   favoriteIcon?: string;
-  iconLibrary?: string;
+  iconLibrary?: 'ionicons' | 'fontawesome5';
 }
 
 // 2. estado inicial
@@ -14,14 +14,16 @@ export const authInitialState: AuthState = {
   isLoggedIn: false,
   userName: undefined,
   favoriteIcon: undefined,
-  iconLibrary: undefined,
 };
 
 // 3. definir el modelo del context (para decirle a React como luce y que expone el context)
 export interface AuthContextProps {
   authState: AuthState;
   signIn: () => void;
-  setFavoriteIcon: (name: string, iconLibrary: string) => void;
+  setFavoriteIcon: (
+    name: string,
+    iconLibrary: 'ionicons' | 'fontawesome5',
+  ) => void;
 }
 
 // 4. crear el contexto
@@ -36,7 +38,10 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
     dispatch({type: 'signIn'});
   };
 
-  const setFavoriteIcon = (name: string, iconLibrary: string) => {
+  const setFavoriteIcon = (
+    name: string,
+    iconLibrary: 'ionicons' | 'fontawesome5',
+  ) => {
     dispatch({type: 'setFavIcon', payload: {name, iconLibrary}});
   };
   return (

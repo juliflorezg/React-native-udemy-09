@@ -2,7 +2,10 @@ import {AuthState} from './AuthContext';
 
 type AuthAction =
   | {type: 'signIn'}
-  | {type: 'setFavIcon'; payload: {name: string; iconLibrary: string}};
+  | {
+      type: 'setFavIcon';
+      payload: {name: string; iconLibrary: 'ionicons' | 'fontawesome5'};
+    };
 
 export const authReducer = (
   state: AuthState,
